@@ -41,4 +41,6 @@
 
 .time-date-span {
     font-weight: bold;
+    color: var(--cl-g);
+    font-size: 0.8em;
 }
