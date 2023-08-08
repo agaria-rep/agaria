@@ -1,0 +1,68 @@
+body {
+    margin: 0vh 0vw;
+    padding: 0vh 0vw;
+    color: var(--cl-q);
+    transition: 1s;
+
+    --cl-a: #ffffff;
+    --cl-b: #ebedef;
+    --cl-c: #d7dbdf;
+    --cl-d: #c4c9cf;
+    --cl-e: #b0b8bf;
+    --cl-f: #9ca6b0;
+    --cl-g: #8894a0;
+    --cl-h: #748290;
+    --cl-i: #64707d;
+    --cl-j: #545e69;
+    --cl-k: #444d55;
+    --cl-m: #343b41;
+    --cl-n: #24292d;
+    --cl-o: #141719;
+    --cl-p: #050506;
+    --cl-r: #000000;
+}
+
+a {
+    color: var(--cl-h);
+    transition: 1s;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--cl-m);
+}
+
+#menu {
+    height: 13vh;
+    width: 100%;
+    background-color: var(--cl-c);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+#menu-logo {
+    height: 12vh;
+    width: 12vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vh;
+    margin-left: 5vw;
+}
+
+#menu-items {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.menu-item {
+    margin-right: 2vw;
+}

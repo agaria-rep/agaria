@@ -1,0 +1,41 @@
+#times {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.times-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin: 2vh 0vw 0vh 0vw;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2vh 2vw;
+    width: 25vw;
+    height: 7.5vw;
+    background-color: var(--cl-b);
+    border-radius: 20px;
+}
+
+.time-name {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.time-utc {
+    color: var(--cl-g);
+}
+
+.time-time {
+    font-size: 1.3em;
+}

@@ -8,7 +8,7 @@
     <meta name="description" content="Site of People Republic Agaria">
     <meta name="keywords" content="народная, республика, агария">
 
-    <link rel="shortcut icon" href="/static/images/icon.png" type="image/png">
+    <link rel="shortcut icon" href="/static/images/favicon.png" type="image/png">
 
     <link rel="stylesheet" href="/static/css/base.css?version={{ VERSION }}">
     <link rel="stylesheet" href="/static/css/base-m.css?version={{ VERSION }}">
@@ -19,14 +19,11 @@
 </head>
 <body>
     <div id="menu">
-        <div id="menu-logo">
-            <img id="menu-image">
-            <div id="menu-header"></div>
-        </div>
+         <img src="/static/images/icon.png" id="menu-logo">
         <div id="menu-items">
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
-            <div class="menu-item"></div>
+            <a href="/" class="menu-item">Главная</a>
+            <a href="/time/" class="menu-item">Время</a>
+            <a href="/change/" class="menu-item">Курс</a>
         </div>
     </div>
     {% block body %}{% endblock %}
