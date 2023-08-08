@@ -38,3 +38,7 @@
 .time-time {
     font-size: 1.3em;
 }
+
+.time-date-span {
+    font-weight: bold;
+}
