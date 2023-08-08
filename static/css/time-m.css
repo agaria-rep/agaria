@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+    .times-row {
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        font-size: 0.8em;
+    }
+    
+    .time {
+        margin-bottom: 2vh;
+    }
+}

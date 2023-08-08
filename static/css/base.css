@@ -1,8 +1,16 @@
+@font-face {
+    font-family: Measure;
+    src: url(/static/fonts/Measure.otf);
+}
+
 body {
     margin: 0vh 0vw;
     padding: 0vh 0vw;
     color: var(--cl-q);
     transition: 1s;
+    font-family: Measure;
+    font-size: 16px;
+    
 
     --cl-a: #ffffff;
     --cl-b: #ebedef;
