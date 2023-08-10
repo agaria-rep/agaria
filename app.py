@@ -24,9 +24,8 @@ def time():
 def change():
     response = requests.get("https://api.frankfurter.app/latest?from=BGN&to=EUR").json()
     
-    #os.environ.setdefault("date", response["date"])
-    #os.environ.setdefault("rate", response["rates"]["EUR"]+int(os.environ.get("rate")))
-    return render_template("change.html", change=response)
+    os.environ.setdefault("date", response["date"])
+    return render_template("change.html", change=os.environ.get("date"))
 
 if SERVER_VERSION == "SERVER":
     app.run()
