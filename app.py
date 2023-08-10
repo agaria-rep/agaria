@@ -1,6 +1,7 @@
 import flask
 from flask import Flask, session, redirect
 import os
+import requests
 
 def render_template(*args, **kwargs):
     return flask.render_template(*args, **kwargs, VERSION=SERVER_VERSION)
@@ -21,7 +22,11 @@ def time():
 
 @app.route("/change/")
 def change():
-    return render_template("change.html")
+    response = requests.get("https://api.frankfurter.app/latest?from=BGN&to=EUR").json()
+    
+    os.environ.setdefault("date", response["date"])
+    os.environ.setdefault("rate", response["rates"]["EUR"]+os.environ.get("rate"))
+    return render_template("change.html", os.environ.get("rate"))
 
 if SERVER_VERSION == "SERVER":
     app.run()
