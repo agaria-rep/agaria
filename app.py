@@ -22,10 +22,9 @@ def time():
 
 @app.route("/change/")
 def change():
-    response = requests.get("https://api.frankfurter.app/latest?from=BGN&to=EUR").json()
-    
-    os.environ.setdefault("date", response["date"])
-    return render_template("change.html", change=os.environ.get("date"))
+    changes_ = requests.get("https://vamo.vccountries.repl.co").json()
+
+    return render_template("change.html", changes=changes_, changes_dates=list(changes_.keys()))
 
 if SERVER_VERSION == "SERVER":
     app.run()

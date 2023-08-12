@@ -5,8 +5,32 @@
 {% block links %}
 <link rel="stylesheet" href="/static/css/change.css?ver={{ VERSION }}">
 <link rel="stylesheet" href="/static/css/change-m.css?ver={{ VERSION }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endblock %}
 
 {% block body %}
-{{ change }}
+<div id="change-display">
+    <canvas id="myChart"></canvas>
+</div>
+<div id="menu-change">
+    <button id="to-right"><</button>
+    <div id="changes">
+        {% for date in changes_dates %}
+            <div class="change">
+                <div class="change-date">{{ date }}</div>
+                <div class="change-current" ruble="{{ changes[date]["to_ruble"] }}"><span>{{ changes[date]["to_ruble"] }}</span><span>₽</span></div>
+                {% if changes[date]["change_ruble"] > 0 %}
+                    <div class="change-percent plus">+{{ changes[date]["change_ruble"] }}</div>
+                {% elif changes[date]["change_ruble"] == 0 %}
+                    <div class="change-percent none">{{ changes[date]["change_ruble"] }}</div>
+                {% else %}
+                    <div class="change-percent minus">{{ changes[date]["change_ruble"] }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <button id="to-left">></button>
+</div>
+<script src="/static/js/change.js?ver={{ VERSION }}"></script>
 {% endblock %}
