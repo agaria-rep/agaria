@@ -1,13 +1,14 @@
 var currentDate = 0;
 var endDate = 0;
 
+var labels = [];
+var points = [];
+
 window.onload = function() {
     currentDate = document.querySelectorAll(".change").length;
     endDate = document.querySelectorAll(".change").length;
     document.querySelector(`.change:nth-child(${currentDate})`).style.display = "flex";
 
-    var labels = [];
-    var points = [];
     document.querySelectorAll(".change").forEach(function(e) {
         let date = new Date(e.querySelector(".change-date").innerHTML).toUTCString().slice(5, 17);
         date = [date.slice(0, 2), date.slice(3, 6)];
@@ -40,7 +41,7 @@ window.onload = function() {
                 borderColor: "#0000FF",
                 fill: false,
                 cubicInterpolationMode: 'monotone',
-                tension: 0.4
+                tension: 0.1
             }
         ]
     };
@@ -68,6 +69,16 @@ window.onload = function() {
                         stepSize: 0.25
                     }
                 }
+            },
+            plugins: {
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(context) {
+                            return "";
+                        }
+                    }
+                }
             }
         }
     };
@@ -76,8 +87,27 @@ window.onload = function() {
 
     Chart.defaults.font.family = "Montserrat";
 
-    new Chart(ctx, config);
+    const myChart = new Chart(ctx, config);
     ctx.style.height = "65vh";
+
+    document.getElementById("myChart").onmousemove = function (e) {
+        var activePoints = myChart.getElementsAtEventForMode(e, 'nearest', myChart.options);
+        currentDate = activePoints[0].index+1;
+
+        document.querySelectorAll(`.change`).forEach(function(e) {e.style.display = "none";})
+        document.querySelector(`.change:nth-child(${currentDate})`).style.display = "flex";
+        
+        if (!(currentDate < endDate)) {
+            document.querySelector("#to-left").setAttribute("disabled", "");
+        } else {
+            document.querySelector("#to-left").removeAttribute("disabled");
+        }
+        if (!(currentDate > 1)) {
+            document.querySelector("#to-right").setAttribute("disabled", "");
+        } else {
+            document.querySelector("#to-right").removeAttribute("disabled");
+        }
+    };
 }
 
 document.querySelector("#to-left").addEventListener('click', function() {
@@ -106,4 +136,3 @@ document.querySelector("#to-right").addEventListener('click', function() {
     }
     document.querySelector("#to-left").removeAttribute("disabled");
 });
-

@@ -7,9 +7,9 @@
 }
 
 #changes {
-    width: 17vw;
+    width: 25vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
 }
@@ -25,6 +25,10 @@
     background-color: var(--cl-b);
     border-radius: 20px;
     margin: 0vh 1vw;
+}
+
+.change * {
+    white-space: nowrap;
 }
 
 .change-current {
