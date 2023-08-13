@@ -1,0 +1,12 @@
+@media (max-width: 548px) {
+    #changes {
+        width: 75vw;
+    }
+    
+    .change {
+        font-size: 1.4em;
+        padding: 2vh 2vw;
+        width: 55vw;
+        height: 17vw;
+    }
+}
