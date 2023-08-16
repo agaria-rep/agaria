@@ -22,7 +22,7 @@ def time():
 
 @app.route("/change/")
 def change():
-    changes_ = requests.get("https://vamo.vccountries.repl.co").json()
+    changes_ = requests.post("https://vamo.vccountries.repl.co/vamo/change").json()
 
     return render_template("change.html", changes=changes_, changes_dates=list(changes_.keys()))
 

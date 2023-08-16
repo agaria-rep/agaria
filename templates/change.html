@@ -11,26 +11,28 @@
 
 {% block body %}
 <div id="change-display">
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart" width="100%" height="50%"></canvas>
 </div>
 <div id="menu-change">
-    <button id="to-right"><</button>
-    <div id="changes">
-        {% for date in changes_dates %}
-            <div class="change">
-                <div class="change-date">{{ date }}</div>
-                <div class="change-current" ruble="{{ changes[date]["to_ruble"] }}"><span>{{ changes[date]["to_ruble"] }}</span><span>₽</span></div>
-                {% if changes[date]["change_ruble"] > 0 %}
-                    <div class="change-percent plus">+{{ changes[date]["change_ruble"] }}</div>
-                {% elif changes[date]["change_ruble"] == 0 %}
-                    <div class="change-percent none">{{ changes[date]["change_ruble"] }}</div>
-                {% else %}
-                    <div class="change-percent minus">{{ changes[date]["change_ruble"] }}</div>
-                {% endif %}
-            </div>
-        {% endfor %}
+    <button id="to-minus" class="button"><</button>
+    <div id="center">
+        <div id="changes">
+            {% for date in changes_dates %}
+                <div class="change">
+                    <div class="change-date">{{ date }}</div>
+                    <div class="change-current" ruble="{{ changes[date]["to_ruble"] }}"><span>{{ changes[date]["to_ruble"] }}</span><span>₽</span></div>
+                    {% if changes[date]["change_ruble"] > 0 %}
+                        <div class="change-percent plus">+{{ changes[date]["change_ruble"] }}</div>
+                    {% elif changes[date]["change_ruble"] == 0 %}
+                        <div class="change-percent none">{{ changes[date]["change_ruble"] }}</div>
+                    {% else %}
+                        <div class="change-percent minus">{{ changes[date]["change_ruble"] }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
-    <button id="to-left" disabled>></button>
+    <button id="to-plus" class="button" disabled>></button>
 </div>
-<script src="/static/js/change.js?ver={{ VERSION }}"></script>
+<script src="/static/js/changes.js?ver={{ VERSION }}"></script>
 {% endblock %}

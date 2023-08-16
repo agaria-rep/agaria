@@ -68,7 +68,7 @@
     color: var(--cl-g);
 }
 
-#to-left, #to-right {
+#to-minus, #to-plus {
     cursor: pointer;
     font-size: 20px;
     width: 5vw;
