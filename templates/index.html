@@ -5,8 +5,15 @@
 {% block links %}
 <link rel="stylesheet" href="/static/css/index.css?ver={{ VERSION }}">
 <link rel="stylesheet" href="/static/css/index-m.css?ver={{ VERSION }}">
+
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
 {% endblock %}
 
 {% block body %}
-
+    {% for n in range(news|length) %}
+        <div id='vk_post_{{ n }}'></div>
+        <script type="text/javascript">
+           VK.Widgets.Post('vk_post_{{ n }}', -205759090, {{ news[n] }}, 'IhGqkxXx1f02_oqbikeWznM0di_G');
+        </script>
+    {% endfor %}
 {% endblock %}
