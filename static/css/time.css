@@ -1,3 +1,18 @@
+@keyframes time-is-time {
+    0% {
+        opacity: 0;
+    }
+    98% {
+        opacity: 0;
+    }
+    99% {  
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 #times {
     width: 100%;
     display: flex;
@@ -43,4 +58,15 @@
     font-weight: bold;
     color: var(--cl-g);
     font-size: 0.8em;
+}
+
+#time-is-time {
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: time-is-time 100s infinite linear;
 }
